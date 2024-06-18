@@ -30,6 +30,7 @@ const GetBlogs = () => {
             await axios.delete(`http://localhost:3002/blog/delete/${id}`);
             console.log("Blog deleted successfully");
             toast.success("Blog Deleted Successfully");
+            setBlogs(blogs.filter(blog => blog._id !== id));
             // You may want to update the state here to reflect the deletion
         } catch (error) {
             console.log(error);
